@@ -1,0 +1,61 @@
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title> {% block title%} {% endblock%}</title>
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'notas/style.css' %}"/>
+	<link href="style.css" rel="stylesheet">
+	<link rel="shortcut icon" type="image/png" href="http://oi65.tinypic.com/vzvjpx.jpg"/>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css'>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<header id="header_bar" class="header" >
+  <div id="header-inner" >
+    <nav>
+      <ul >
+        <li><a href="{% url 'home' %}" class="slide-section">INÍCIO</a></li>
+        <li><a href="{% url 'notas' %}" class="slide-section">GERENCIAR</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<div class="fixer"></div>
+<section class="parallax-1">
+    <div class="parallax-inner">
+      <div class="about-int" id="banner-wrapper">
+        <div class="parallax-inner"> 
+    {% block content %}
+
+    {% endblock %}
+      </div>
+    </div>
+</section>
+        <!-- scripts -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+      <script type="text/javascript" src="custom.js"></script>
+      <script type="text/javascript">window.onscroll = fadeNav;</script>
+      <script type="text/javascript" src="agenda/static/js.js"></script>
+</body>
+      <div class="social">
+          <ul>
+            <li> 
+              <a href="https://twitter.com" target="_blank">
+                <i class="fa fa-twitter fa-2x" aria-hidden="true"></i></a>
+            </li>
+            <li>
+              <a href="https://github.com" target="_blank">
+                <i class="fa fa-github fa-2x" aria-hidden="true"></i></a>
+            </li>
+            <li>
+              <a href="https://www.freecodecamp.com" target="_blank">
+                <i class="fa fa-free-code-camp fa-2x" aria-hidden="true"></a></i></li>
+            <li>
+              <a href="https://codepen.io" target="_blank">
+                <i class="fa fa-codepen fa-2x" aria-hidden="true"></i></a>
+            </li>
+          </ul>
+          <p>&copy; 2023 - Maristela</p>
+        </div>
+</html>

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title%}
+Ver Nota
+{% endblock %}
+{% block content %}
+<!-- criar info -->
+<h1>Nota</h1>
+  <div class="one-half">
+        {% if item %}
+        <form id="form" method="post" action="{% url 'deleta' item.id %}" style="margin-left: auto; margin-right: auto;" >{% csrf_token %}  
+          <input id="titulo" type="text" value="{{ item.titulo }}"  name="titulo" disabled="">
+          <textarea id="descricao" type="text" name="descricao" disabled="">{{ item.descricao }}</textarea>
+        </form>
+        {% endif %}
+      </div>
+  <div class="one-half">
+    <p>Criada no dia {{ item.data }}.
+    <br>
+    <br>
+<p><em>"Você se tornou poderoso, sinto o lado negro em você."</em>
+      <br> - Yoda</P>
+</div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block title%}
+Gerenciar Nota
+{% endblock %}
+{% block content %}
+  <h1>Gerenciar Notas</h1>
+<!-- Titulo -->
+      <div class="one-third">  
+            <h3>Título</h3>
+            {% for item in lista_itens %}
+        <p><li>{{ item.titulo }}</li></p> 
+                {% empty %}
+                <li>Sem itens na lista</li>
+            {% endfor %}
+        </div>
+<!-- Fim Título -->
+<!-- Data e hora -->
+        <div class="one-third">           
+           <h3>Data - Hora</h3>
+            {% for item in lista_itens %}
+              <p><li>
+                  {{ item.data|date:'d/m/Y' }} , {{ item.hora | time:'H:i' }}
+              </li></p>
+          {% empty %}
+              <li>Sem itens na lista</li>
+          {% endfor %} 
+        </div> 
+<!-- Fim Data e Hora -->
+<!-- Botões -->
+  <div class="one-third" >           
+     <li style="list-style: none;"><a href="{% url 'adiciona' %}"><button class="btnc">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      CRIAR
+  </button></a></li><br>
+      {% for item in lista_itens %}
+    <li style="list-style: none;">
+    <a href="/visualiza/{{ item.id }}"><button class="btn">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        ABRIR
+    </button></a>&nbsp;
+    <a href="/edita/{{ item.id }}"><button class="btn">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      EDITAR
+    </button></a>&nbsp;
+    <a href="/deleta/{{ item.id }}"><button class="btn">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      EXCLUIR
+    </button></a>
+    </p></li>
+          {% empty %}
+              <li>Sem itens na lista</li>
+          {% endfor %}
+  </div>
+{% endblock %}

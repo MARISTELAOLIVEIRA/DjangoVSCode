@@ -1,0 +1,730 @@
+@import url("https://fonts.googleapis.com/css2?family=Questrial&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+body {
+  background-color: #0e0e0e;
+  font-family: "Open Sans";
+  color: #ff2e2e;
+  font-weight: 300;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #191919;
+  width: 100%;
+  height: 95px;
+  position: fixed;
+  z-index: 10000;
+  box-shadow: 0 0 10px #ff0000, 0 0 40px #ff0000, 0 0 80px #ff0000;
+}
+
+#header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+a:hover#menu-icon {
+  border-radius: 4px 4px 0 0;
+}
+
+/*navigation*/
+
+nav {
+  position: fixed;
+  display: inline-block;
+  padding: 20px 135px;
+  color: #ff0000;
+  text-transform: uppercase;
+  text-align: left;
+  letter-spacing: 3px;
+  text-decoration: none;
+  overflow: hidden;
+  transition: 0.2s;
+}
+
+nav ul li {
+  font-size: 140%;
+  display: inline-block;
+  padding: 15px 20px;
+ 
+  /*margin: ;*/
+}
+
+nav ul li a {
+  color: #951b19;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: 0.2s;
+  padding: 5px 30px;
+
+}
+
+nav ul li a:hover {
+  color: #050f1a;
+  border-radius: 3px;
+  box-shadow: 0 0 10px #ff0000, 0 0 40px #ff0000, 0 0 80px #ff0000;
+  transition-delay: 600ms;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #ff0000);
+  transition: 600ms;
+  
+}
+/************************************************
+4.	BOTTOM NEON
+************************************************/
+nav span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, #ff0000);
+}
+nav:hover span:nth-child(3) {
+  right: 100%;
+  transition: 1s;
+  transition-delay: 250ms;
+}
+/************************************************
+5.	NAV RIGHT NEON
+************************************************/
+nav span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #ff0000);
+}
+nav:hover span:nth-child(2) {
+  top: 100%;
+  transition: 1s;
+  transition-delay: 100ms;
+}
+
+/************************************************
+5.	NAV LEFT NEON
+************************************************/
+nav span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #ff0000);
+}
+
+nav:hover span:nth-child(4) {
+  bottom: 100%;
+  transition: 1s;
+  transition-delay: 450ms;
+}
+/*text section*/
+
+h1 {
+  text-align: center;
+  font-size: 43px;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 7px;
+  padding: 3% 0 3% 0;
+}
+
+h3 {
+  text-align: center;
+  font-size: 25px;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+}
+
+p {
+  padding: 2%;
+  text-align: justify;
+  font-size: 17px;
+  word-spacing: 2px;
+  color: #e0dbdb;
+}
+
+.hover-a {
+  text-transform: uppercase;
+  -moz-transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  text-decoration: none;
+  color: #e0dbdb;
+  padding: 0 2px 0 2px;
+}
+
+.hover-a:hover {
+  background-color: #f90000;
+}
+
+#white {
+  background-color: white;
+  color: black;
+}
+
+#red {
+  background-color: red;
+  color: white;
+}
+
+#black {
+  background-color: black;
+  color: red;
+}
+
+span {
+  text-transform: uppercase;
+  padding: 0 2px 0 2px;
+}
+#dark-side {
+  border-style: solid;
+  border-width: 1px;
+  color: red;
+  box-shadow: 0 0 10px red, 0 0 40px red, 0 0 80px red;
+  text-transform: uppercase;
+}
+#dark-site:hover{
+  color: black;
+  box-shadow: 0 0 10px black, 0 0 40px black, 0 0 80px black;
+}
+#banner-wrapper {
+  max-width: 1280px;
+  margin: 6 auto;
+}
+
+.about-intro {
+  padding-top: 50px;
+}
+.about-int {
+  padding-top: -20px;
+}
+.one-half {
+  width: 44%;
+  float: left;
+  margin: 2% 0 3% 4%;
+  text-align: center;
+  padding-top: -20px;
+  padding: 0px 0px;
+}
+
+.one-third {
+  width: 28%;
+  float: left;
+  margin: 2% 0 3% 4%;
+  text-align: center;
+  padding-top: -20px;
+  padding: 0px 0px;
+}
+
+/*parallax sections */
+.parallax-1 {
+  background: url("https://res.cloudinary.com/maxlearncode/image/upload/v1488492988/parallax2_sygbjc.png")
+    no-repeat fixed 100%;
+  background-position: center;
+  text-align: center;
+  margin: 15px auto 5px auto;
+  max-width: 1300px;
+  width: 100%;
+  padding-top: -15px;
+  border-radius: 10px 10px 10px 10px;
+  -webkit-box-shadow: 0px 0px 40px 5px rgba(255, 255, 255, 0.3);
+  -moz-box-shadow: 0px 0px 40px 5px rgba(255, 255, 255, 0.3);
+  box-shadow: 0px 0px 40px 5px rgba(255, 255, 255, 0.3);
+  max-height: none;
+  overflow-y: auto;
+}
+
+.parallax-inner {
+  padding-top: 50px;
+  padding-bottom: 225px;
+}
+
+.fixer {
+  clear: both;
+}
+/*contact form */
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  color: #fdfdfd;
+  font-size: 0.875em;
+}
+
+input:focus::-webkit-input-placeholder,
+textarea:focus::-webkit-input-placeholder {
+  color: #fdfdfd;
+}
+
+input::-moz-placeholder,
+textarea::-moz-placeholder {
+  color: #fdfdfd;
+  font-size: 0.875em;
+}
+
+input:focus::-moz-placeholder,
+textarea:focus::-moz-placeholder {
+  color: #fdfdfd;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #fdfdfd;
+  font-size: 0.875em;
+}
+
+input:focus::placeholder,
+textarea::focus:placeholder {
+  color: #fdfdfd;
+}
+
+input::-ms-placeholder,
+textarea::-ms-placeholder {
+  color: #fdfdfd;
+  font-size: 0.875em;
+}
+
+input:focus::-ms-placeholder,
+textarea:focus::-ms-placeholder {
+  color: #fdfdfd;
+}
+
+/* on hover placeholder */
+
+input:hover::-webkit-input-placeholder,
+textarea:hover::-webkit-input-placeholder {
+  color: #ff2e2e;
+  font-size: 0.875em;
+}
+
+input:hover:focus::-webkit-input-placeholder,
+textarea:hover:focus::-webkit-input-placeholder {
+  color: #ff2e2e;
+}
+
+input:hover::-moz-placeholder,
+textarea:hover::-moz-placeholder {
+  color: #ff2e2e;
+  font-size: 0.875em;
+}
+
+input:hover:focus::-moz-placeholder,
+textarea:hover:focus::-moz-placeholder {
+  color: #ff2e2e;
+}
+
+input:hover::placeholder,
+textarea:hover::placeholder {
+  color: #ff2e2e;
+  font-size: 0.875em;
+}
+
+input:hover:focus::placeholder,
+textarea:hover:focus::placeholder {
+  color: #ff2e2e;
+}
+
+input:hover::placeholder,
+textarea:hover::placeholder {
+  color: #ff2e2e;
+  font-size: 0.875em;
+}
+
+input:hover:focus::-ms-placeholder,
+textarea:hover::focus:-ms-placeholder {
+  color: #ff2e2e;
+}
+
+#form {
+  position: relative;
+  width: 100%;
+  max-width: 472px;
+  
+}
+
+input {
+  font-family: "Open Sans";
+  color: #ff2e2e;
+  font-weight: 300;
+  font-size: 16px;
+  letter-spacing: 3px;
+  text-align: center;
+
+  max-width: 470px;
+  width: 100%;
+  height: 50px;
+
+  background: transparent;
+  outline: none;
+
+  border: solid 1px #d1c6be;
+  border-bottom: none;
+
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+}
+
+textarea {
+  max-width: 470px;
+  width: 100%;
+  height: 110px;
+  max-height: 110px;
+  padding-top: 15px;
+
+  background: transparent;
+  outline: none;
+
+  font-family: "Open Sans";
+  color: #ff2e2e;
+  font-weight: 300;
+  font-size: 16px;
+  letter-spacing: 3px;
+  text-align: center;
+
+  border: solid 1px #ddd1c9;
+
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+}
+
+#submit {
+  max-width: 472px;
+  width: 100.5%;
+
+  padding: 0;
+  margin: -5px 0px 0px 0px;
+
+  font-family: "Open Sans";
+  font-weight: 300;
+  font-size: 16px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #fdfdfd;
+
+  outline: none;
+  cursor: pointer;
+
+  border: solid 1px #c5b4a8;
+  border-top: none;
+}
+
+#submit:hover {
+  color: #ff2e2e;
+}
+
+/*social */
+
+.social {
+  clear: both;
+  height: 50px;
+  text-align: center;
+}
+
+.social ul li {
+  display: inline-block;
+  margin: 20px 15px 0 15px;
+}
+
+.social ul li a {
+  text-decoration: none;
+  color: #ff2e2e;
+}
+
+.social ul li i:hover {
+  color: #e0dbdb;
+}
+
+/*media queries */
+
+@media screen and (max-width: 768px) {
+  
+  nav ul,
+  nav:active ul {
+    display: none;
+    z-index: 10000;
+    position: absolute;
+    padding: 20px 20px 20px 0px;
+    background: #191919;
+    right: 0.1px;
+    top: 94px;
+    text-align: center;
+  }
+  nav:hover ul {
+    display: block;
+  }
+  nav li {
+    text-align: right;
+    width: 100%;
+  }
+
+  .one-third {
+    width: 100%;
+    margin: 5% 0%;
+  }
+
+  .one-half {
+    width: 100%;
+    margin: 5% 0%;
+  }
+
+  h1 {
+    margin-bottom: 25px;
+  }
+
+  #form {
+    max-width: none;
+  }
+
+  p {
+    text-align: center;
+  }
+
+  img {
+    max-width: 85%;
+  }
+}
+
+/* Botão */
+
+/************************************************************
+
+File : style.scss
+Theme name : neon button
+Description: Original tuto by Online Tutorials -> https://youtu.be/ex7jGbyFgpA
+Author: Shay
+
+
+
+/************************************************************
+
+File : style.scss
+Theme name : neon button
+Description: Original tuto by Online Tutorials -> https://youtu.be/ex7jGbyFgpA
+Author: Shay
+
+
+
+/************************************************
+0.	Import
+************************************************/
+@import url("https://fonts.googleapis.com/css2?family=Questrial&display=swap");
+
+/************************************************
+2.	LINK and BUTTON
+************************************************/
+.btn {
+  position: relative;
+  display: inline-block;
+  padding: 2px 13px;
+  color: #ff0000;
+  background-color: #0e0e0e;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-decoration: none;
+  font-size: 14px;
+  overflow: hidden;
+  transition: 0s;
+}
+.btn:visited {
+  color: #ff0000;
+}
+.btn:hover {
+  color: #0e0e0e;
+  background: #ff0000;
+  border-radius: 3px;
+  box-shadow: 0 0 10px #ff0000, 0 0 40px #ff0000, 0 0 80px #ff0000;
+  transition-delay: 400ms;
+}
+.btn span {
+  position: absolute;
+  display: block;
+}
+
+/************************************************
+3.	TOP NEON
+************************************************/
+.btn span:nth-child(1) {
+  top: 0;
+  left: -105%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #ff0000);
+}
+
+.btn:hover span:nth-child(1) {
+  left: 100%;
+  transition: 600ms;
+}
+
+/************************************************
+4.	BOTTOM NEON
+************************************************/
+.btn span:nth-child(3) {
+  bottom: 0;
+  right: -105%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, #ff0000);
+}
+
+.btn:hover span:nth-child(3) {
+  right: 100%;
+  transition: 1s;
+  transition-delay: 250ms;
+}
+
+/************************************************
+5.	RIGHT NEON
+************************************************/
+.btn span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #ff0000);
+}
+
+.btn:hover span:nth-child(2) {
+  top: 100%;
+  transition: 1s;
+  transition-delay: 100ms;
+}
+
+/************************************************
+5.	LEFT NEON
+************************************************/
+.btn span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #ff0000);
+}
+
+.btn:hover span:nth-child(4) {
+  bottom: 100%;
+  transition: 1s;
+  transition-delay: 450ms;
+}
+/************************************************
+2.	LINK and BUTTON 2
+************************************************/
+.btnc {
+  position: relative;
+  display: inline-block;
+  padding: 2px 18px;
+  background: #0e0e0e;
+  color: #ff0050;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-decoration: none;
+  font-size: 26px;
+  overflow: hidden;
+  transition: 0.5s;
+  box-shadow: 0 0 10px #ff0000, 0 0 15px #ff0000, 0 0 30px #ff0000;
+}
+.btnc:visited {
+  color: #ff0050;
+}
+.btnc:hover {
+  color: #151515;
+  background: #ff0050;
+  border-radius: 3px;
+  box-shadow: 0 0 10px #ff0000, 0 0 40px #ff0000, 0 0 80px #ff0000;
+  transition-delay: 400ms;
+}
+.btnc span {
+  position: absolute;
+  display: block;
+}
+
+/************************************************
+3.	TOP NEON
+************************************************/
+.btnc span:nth-child(1) {
+  top: 0;
+  left: -105%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #ff0050);
+}
+.btnc:hover span:nth-child(1) {
+  left: 100%;
+  transition: 600ms;
+}
+
+/************************************************
+4.	BOTTOM NEON
+************************************************/
+.btnc span:nth-child(3) {
+  bottom: 0;
+  right: -105%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, #ff0000);
+}
+
+.btnc:hover span:nth-child(3) {
+  right: 100%;
+  transition: 1s;
+  transition-delay: 250ms;
+}
+
+/************************************************
+5.	RIGHT NEON
+************************************************/
+.btnc span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #ff0050);
+}
+
+.btnc:hover span:nth-child(2) {
+  top: 100%;
+  transition: 1s;
+  transition-delay: 100ms;
+}
+
+/************************************************
+5.	LEFT NEON
+************************************************/
+.btnc span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #ff0050);
+}
+
+.btnc:hover span:nth-child(4) {
+  bottom: 100%;
+  transition: 1s;
+  transition-delay: 350ms;
+}
+.dark-side {
+  border-style: solid;
+  border-width: 1px;
+  color: red;
+  box-shadow: 0 0 10px red, 0 0 40px red, 0 0 80px red;
+}
+.dark-side:hover {
+  color: black;
+  box-shadow: 0 0 10px black, 0 0 40px black, 0 0 80px black;
+}
