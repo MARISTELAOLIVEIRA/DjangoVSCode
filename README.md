@@ -1,1 +1,1 @@
-# TutorialDjangoVSCode
+# Tutorial Django VSCode
