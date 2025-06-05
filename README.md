@@ -1,1 +1,1 @@
-# TutorialDajangoVSCode
+# TutorialDjangoVSCode
