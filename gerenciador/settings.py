@@ -17,6 +17,10 @@ DEBUG = False
 ALLOWED_HOSTS = ["djangovscode-fyfca5fqb2dqajev.canadacentral-01.azurewebsites.net", "localhost", "127.0.0.1"]
 
 
+CSRF_TRUSTED_ORIGINS = ['https://djangovscode-fyfca5fqb2dqajev.canadacentral-01.azurewebsites.net']
+
+
+
 # Application definition
 
 INSTALLED_APPS = [
