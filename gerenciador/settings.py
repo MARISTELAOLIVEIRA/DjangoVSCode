@@ -14,7 +14,7 @@ SECRET_KEY = 'django-insecure-tjy)b++$p(oz1j&4!71(8$82^via)zz@*$+dp+ew7h-1c06r(c
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["djangovscode-fyfca5fqb2dqajev.canadacentral-01.azurewebsites.net", "localhost", "127.0.0.1"]
 
 
 # Application definition
@@ -106,7 +106,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'static_collected'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# Whitenoise configuration for serving static files in production
+# https://whitenoise.evans.io/en/stable/django.html
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 # Default primary key field type
