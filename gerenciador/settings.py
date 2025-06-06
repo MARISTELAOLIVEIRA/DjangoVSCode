@@ -16,6 +16,15 @@ DEBUG = False
 
 ALLOWED_HOSTS = ["djangovscode-fyfca5fqb2dqajev.canadacentral-01.azurewebsites.net", "localhost", "127.0.0.1"]
 
+# CSRF settings
+# Ensure that the CSRF trusted origins are set correctly for your production domain
+# This is important for security, especially when using CSRF protection in forms
+# Replace with your actual domain if different
+
+# CSRF_TRUSTED_ORIGINS is used to specify which origins are trusted for CSRF protection
+# This is particularly important when your application is served over HTTPS
+# and you want to ensure that CSRF tokens are validated against trusted origins.
+# The following line should be updated with your actual domain if different.
 
 CSRF_TRUSTED_ORIGINS = ['https://djangovscode-fyfca5fqb2dqajev.canadacentral-01.azurewebsites.net']
 
