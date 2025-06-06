@@ -6,7 +6,8 @@ Adicionar Nota
 <!-- criar info -->
     <h1>Criar Nota</h1>
       <div class="one-half">
-        <form id="form" method="post" action="{% url 'adiciona' %}" style="margin-left: auto; margin-right: auto;">{% csrf_token %}
+        <form id="form" method="post" action="{% url 'adiciona' %}" style="margin-left: auto; margin-right: auto;" enctype="multipart/form-data"></form>
+          {% csrf_token %}
           <input id="titulo" type="text" placeholder="TÍTULO" name="titulo">
           <textarea id="descricao" type="text" placeholder="DESCRIÇÃO" name="descricao"></textarea>
           <input id="submit" type="submit" value="Criar">
