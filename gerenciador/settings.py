@@ -76,11 +76,23 @@ WSGI_APPLICATION = 'gerenciador.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-
+"""
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
+"""
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'DjangoVSCode',
+        'USER': 'maristeladb',
+        'PASSWORD': 'Django#2025',
+        'HOST': 'mysqlserverdjango.database.windows.net',
+        'PORT': '3306',
     }
 }
 
