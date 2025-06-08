@@ -88,10 +88,10 @@ DATABASES = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'DjangoVSCode',
-        'USER': 'maristeladb',
-        'PASSWORD': 'Django#2025',
-        'HOST': 'mysqlserverdjango.database.windows.net',
+        'NAME': 'testetutorialdjango',
+        'USER': 'djangoadmin',
+        'PASSWORD': 'St3l@2025',
+        'HOST': 'testedjangoserver.database.windows.net',
         'PORT': '3306',
     }
 }
