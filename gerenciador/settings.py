@@ -94,7 +94,7 @@ DATABASES = {
         'HOST': 'testedjangoserver.mysql.database.azure.com',
         'PORT': '3306',
         'OPTIONS': {
-            'ssl': {'ca-cert': '/caminho/para/BaltimoreCyberTrustRoot.crt.pem'}
+            'ssl': {'ca-cert': '/gerenciador/BaltimoreCyberTrustRoot.crt.pem'}
         }
     }
 }
