@@ -90,7 +90,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'testedjangoserver',
-        'USER': 'djangoadmin@testedjangoserver',
+        'USER': 'djangoadmin',
         'PASSWORD': 'St3l@2025',
         'HOST': 'testedjangoserver.mysql.database.azure.com',
         'PORT': '3306',
