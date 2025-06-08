@@ -1,6 +1,7 @@
 import os
 from pathlib import Path
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -84,23 +85,22 @@ DATABASES = {
     }
 }
 """
-
+# Database configuration for MySQL on Azure
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'testedjangoserver',
-        'USER': 'djangoadmin',
+        'USER': 'djangoadmin@testedjangoserver',
         'PASSWORD': 'St3l@2025',
         'HOST': 'testedjangoserver.mysql.database.azure.com',
         'PORT': '3306',
         'OPTIONS': {
-            'ssl': {'ca-cert': '/gerenciador/BaltimoreCyberTrustRoot.crt.pem'}
+            'ssl': {
+                'ssl-ca': '/gerenciador/BaltimoreCyberTrustRoot.crt.pem'
+            }
         }
     }
 }
-
-
-
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
