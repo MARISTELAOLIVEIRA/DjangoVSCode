@@ -88,13 +88,17 @@ DATABASES = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'testetutorialdjango',
+        'NAME': 'testedjangoserver',
         'USER': 'djangoadmin',
         'PASSWORD': 'St3l@2025',
-        'HOST': 'testedjangoserver.database.windows.net',
+        'HOST': 'testedjangoserver.mysql.database.azure.com',
         'PORT': '3306',
+        'OPTIONS': {
+            'ssl': {'ca-cert': '/caminho/para/BaltimoreCyberTrustRoot.crt.pem'}
+        }
     }
 }
+
 
 
 # Password validation
