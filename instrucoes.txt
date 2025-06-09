@@ -1,9 +1,0 @@
-O arquivo requirements.txt guarda todas as configurações para o 
-software funcionar em qualquer plataforma, para cria-lo você deve 
-digitar:
-
-pip freeze > requirements.txt
-
-Depois é só abrir em qualquer computador e executar esse outro 
-comando:
-pip install -r requirements.txt

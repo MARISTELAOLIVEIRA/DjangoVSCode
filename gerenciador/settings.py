@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'notas',
 ]
 
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',  # Middleware for serving static files
