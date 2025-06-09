@@ -91,7 +91,6 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'tutorialdjangovscode',
         'USER': 'djangoadmin',
-        # Use the correct password for your MySQL database
         'PASSWORD': 'St3l@2025',
         'HOST': 'testedjangoserver.mysql.database.azure.com',
         'PORT': '3306',
