@@ -97,7 +97,7 @@ DATABASES = {
         'PORT': '3306',
         'OPTIONS': {
             'ssl': {
-                'ssl-ca': '/gerenciador/DigiCertGlobalRootG2.crt.pem'
+                'ssl-ca': '/home/maristela/DigiCertGlobalRootG2.crt.pem'
             }
         }
     }
