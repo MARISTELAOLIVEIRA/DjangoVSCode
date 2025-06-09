@@ -96,7 +96,7 @@ DATABASES = {
         'PORT': '3306',
         'OPTIONS': {
             'ssl': {
-                'ssl-ca': '/gerenciador/BaltimoreCyberTrustRoot.crt.pem'
+                'ssl-ca': '/gerenciador/DigiCertGlobalRootG2.crt.pem'
             }
         }
     }
