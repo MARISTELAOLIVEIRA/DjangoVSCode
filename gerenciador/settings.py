@@ -90,7 +90,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'tutorialdjangovscode',
-        'USER': 'djangoadmin@tutorialdjangovscode',
+        'USER': 'djangoadmin@testedjangoserver',
         # Use the correct password for your MySQL database
         'PASSWORD': 'St3l@2025',
         'HOST': 'testedjangoserver.mysql.database.azure.com',
