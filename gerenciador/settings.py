@@ -21,7 +21,11 @@ SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'dev-insecure-key-change-me')
 DEBUG = os.getenv('DJANGO_DEBUG', 'False').lower() in ('1', 'true', 'yes')
 
 _allowed_hosts_raw = os.getenv('DJANGO_ALLOWED_HOSTS', 'localhost,127.0.0.1')
+# Fallback para Azure App Service: WEBSITE_HOSTNAME é definido automaticamente
+_website_hostname = os.getenv('WEBSITE_HOSTNAME', '').strip()
 ALLOWED_HOSTS = [h.strip() for h in _allowed_hosts_raw.split(',') if h.strip()]
+if _website_hostname and _website_hostname not in ALLOWED_HOSTS:
+    ALLOWED_HOSTS.append(_website_hostname)
 
 # CSRF settings
 # Ensure that the CSRF trusted origins are set correctly for your production domain
@@ -34,7 +38,11 @@ ALLOWED_HOSTS = [h.strip() for h in _allowed_hosts_raw.split(',') if h.strip()]
 # The following line should be updated with your actual domain if different.
 
 _csrf_origins_raw = os.getenv('DJANGO_CSRF_TRUSTED_ORIGINS', '')
-CSRF_TRUSTED_ORIGINS = [o.strip() for o in _csrf_origins_raw.split(',') if o.strip()] if _csrf_origins_raw else []
+if _csrf_origins_raw:
+    CSRF_TRUSTED_ORIGINS = [o.strip() for o in _csrf_origins_raw.split(',') if o.strip()]
+else:
+    # Se não informado, usar o host do Azure (se disponível) com https como trusted origin
+    CSRF_TRUSTED_ORIGINS = [f"https://{_website_hostname}"] if _website_hostname else []
 
 
 
