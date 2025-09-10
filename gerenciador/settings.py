@@ -20,12 +20,17 @@ SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'dev-insecure-key-change-me')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DJANGO_DEBUG', 'False').lower() in ('1', 'true', 'yes')
 
-_allowed_hosts_raw = os.getenv('DJANGO_ALLOWED_HOSTS', 'localhost,127.0.0.1')
+# Suporte a nomes alternativos de variáveis de ambiente
+_allowed_hosts_raw = os.getenv('DJANGO_ALLOWED_HOSTS') or os.getenv('ALLOWED_HOSTS') or 'localhost,127.0.0.1'
 # Fallback para Azure App Service: WEBSITE_HOSTNAME é definido automaticamente
 _website_hostname = os.getenv('WEBSITE_HOSTNAME', '').strip()
 ALLOWED_HOSTS = [h.strip() for h in _allowed_hosts_raw.split(',') if h.strip()]
 if _website_hostname and _website_hostname not in ALLOWED_HOSTS:
     ALLOWED_HOSTS.append(_website_hostname)
+# Fallback específico para o subdomínio custom do projeto (evita 400 quando não há App Settings)
+_custom_subdomain = 'tutorialdjangovscode.stela.tec.br'
+if _custom_subdomain not in ALLOWED_HOSTS:
+    ALLOWED_HOSTS.append(_custom_subdomain)
 
 # CSRF settings
 # Ensure that the CSRF trusted origins are set correctly for your production domain
@@ -37,12 +42,29 @@ if _website_hostname and _website_hostname not in ALLOWED_HOSTS:
 # and you want to ensure that CSRF tokens are validated against trusted origins.
 # The following line should be updated with your actual domain if different.
 
-_csrf_origins_raw = os.getenv('DJANGO_CSRF_TRUSTED_ORIGINS', '')
+_csrf_origins_raw = os.getenv('DJANGO_CSRF_TRUSTED_ORIGINS', '') or os.getenv('CSRF_TRUSTED_ORIGINS', '')
 if _csrf_origins_raw:
     CSRF_TRUSTED_ORIGINS = [o.strip() for o in _csrf_origins_raw.split(',') if o.strip()]
 else:
     # Se não informado, usar o host do Azure (se disponível) com https como trusted origin
     CSRF_TRUSTED_ORIGINS = [f"https://{_website_hostname}"] if _website_hostname else []
+    # Garantir também o subdomínio custom em produção
+    if _custom_subdomain:
+        CSRF_TRUSTED_ORIGINS.append(f"https://{_custom_subdomain}")
+
+# Proxy/HTTPS (Azure): reconhecer HTTPS real quando atrás do proxy do App Service
+_proxy_header_raw = os.getenv('SECURE_PROXY_SSL_HEADER', '').strip()
+if _proxy_header_raw:
+    _ph = [p.strip() for p in _proxy_header_raw.split(',', 1)]
+    if len(_ph) == 2 and _ph[0] and _ph[1]:
+        SECURE_PROXY_SSL_HEADER = (_ph[0], _ph[1])
+elif _website_hostname:
+    # Valor padrão em Azure App Service
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+# Permitir habilitar via env sem default agressivo
+SESSION_COOKIE_SECURE = os.getenv('SESSION_COOKIE_SECURE', 'False').lower() in ('1', 'true', 'yes')
+CSRF_COOKIE_SECURE = os.getenv('CSRF_COOKIE_SECURE', 'False').lower() in ('1', 'true', 'yes')
 
 
 
