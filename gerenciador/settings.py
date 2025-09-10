@@ -1,21 +1,27 @@
 import os
 from pathlib import Path
+from dotenv import load_dotenv
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+# Load environment variables from .env file (if present)
+load_dotenv(BASE_DIR / '.env')
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-tjy)b++$p(oz1j&4!71(8$82^via)zz@*$+dp+ew7h-1c06r(c'
+# Default for development only if not provided
+SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'dev-insecure-key-change-me')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = os.getenv('DJANGO_DEBUG', 'False').lower() in ('1', 'true', 'yes')
 
-ALLOWED_HOSTS = ["djangovscode-fyfca5fqb2dqajev.canadacentral-01.azurewebsites.net", "localhost", "127.0.0.1"]
+_allowed_hosts_raw = os.getenv('DJANGO_ALLOWED_HOSTS', 'localhost,127.0.0.1')
+ALLOWED_HOSTS = [h.strip() for h in _allowed_hosts_raw.split(',') if h.strip()]
 
 # CSRF settings
 # Ensure that the CSRF trusted origins are set correctly for your production domain
@@ -27,7 +33,8 @@ ALLOWED_HOSTS = ["djangovscode-fyfca5fqb2dqajev.canadacentral-01.azurewebsites.n
 # and you want to ensure that CSRF tokens are validated against trusted origins.
 # The following line should be updated with your actual domain if different.
 
-CSRF_TRUSTED_ORIGINS = ['https://djangovscode-fyfca5fqb2dqajev.canadacentral-01.azurewebsites.net']
+_csrf_origins_raw = os.getenv('DJANGO_CSRF_TRUSTED_ORIGINS', '')
+CSRF_TRUSTED_ORIGINS = [o.strip() for o in _csrf_origins_raw.split(',') if o.strip()] if _csrf_origins_raw else []
 
 
 
@@ -86,22 +93,37 @@ DATABASES = {
     }
 }
 """
-# Database configuration for MySQL on Azure
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'tutorialdjangovscode',
-        'USER': 'djangoadmin',
-        'PASSWORD': 'St3l@2025',
-        'HOST': 'testedjangoserver.mysql.database.azure.com',
-        'PORT': '3306',
-        'OPTIONS': {
-            'ssl': {
-                'ssl-ca': '/home/maristela/DigiCertGlobalRootG2.crt.pem'
+# Database configuration using environment variables
+DB_ENGINE = os.getenv('DB_ENGINE', 'django.db.backends.sqlite3')
+if DB_ENGINE == 'django.db.backends.mysql':
+    # Se DB_SSL_CA estiver vazio ou não definido, usar o certificado padrão incluso no projeto
+    _db_ssl_ca_env = os.getenv('DB_SSL_CA')
+    _db_ssl_ca_value = str(BASE_DIR / 'gerenciador' / 'DigiCertGlobalRootG2.crt.pem') if not _db_ssl_ca_env or not _db_ssl_ca_env.strip() else _db_ssl_ca_env
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': os.getenv('DB_NAME', ''),
+            'USER': os.getenv('DB_USER', ''),
+            'PASSWORD': os.getenv('DB_PASSWORD', ''),
+            'HOST': os.getenv('DB_HOST', ''),
+            'PORT': os.getenv('DB_PORT', '3306'),
+            # Reutiliza conexões com o banco (opcional). 0 = desativado
+            'CONN_MAX_AGE': int(os.getenv('DB_CONN_MAX_AGE', '0')),
+            'OPTIONS': {
+                'ssl': {
+                    'ssl-ca': _db_ssl_ca_value
+                }
             }
         }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+            'CONN_MAX_AGE': int(os.getenv('DB_CONN_MAX_AGE', '0')),
+        }
+    }
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 

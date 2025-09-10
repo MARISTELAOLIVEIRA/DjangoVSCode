@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.sqlite3
+
+# Django
+/staticfiles/
+/media/
+
+# Env
+.env
+.env.*
+!.env.example
+
+# VS Code
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Pyenv/venv
+.venv/
+venv/
+ENV/
+
+# Coverage
+htmlcov/
+.coverage*
+.pytest_cache/
